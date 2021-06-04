@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t vikramsomasundaram/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true vikramsomasundaram/docker-react npm run test
+    
